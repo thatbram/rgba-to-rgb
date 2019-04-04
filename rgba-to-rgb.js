@@ -16,13 +16,15 @@ Color.prototype.rgba2rgb = function (color) {
 };
 
 function recalculate () {
-	var rgba = $('#colorpicker_rgba').spectrum('get');
 	var background = $('#colorpicker_bg').spectrum('get');
+	
+	var rgba = $('#colorpicker_rgba').spectrum('get');
 	var rgba_color = new Color(rgba.toRgb().r, rgba.toRgb().g, rgba.toRgb().b, rgba.toRgb().a);
+	
 	var background_color = new Color(background.toRgb().r, background.toRgb().g, background.toRgb().b);
 	var result_rgb = background_color.rgba2rgb(rgba_color);
 
-	$('#boxleft').css('background-color', 'rgba(' + rgba.toRgb().r + ',' +
+	$('#result_rgba').css('background-color', 'rgba(' + rgba.toRgb().r + ',' +
 		rgba.toRgb().g + ',' +
 		rgba.toRgb().b + ',' +
 		rgba.toRgb().a + ')'  );
@@ -31,11 +33,12 @@ function recalculate () {
 		Math.round(result_rgb.g) + ',' +
 		Math.round(result_rgb.b) + ')';
 
-	$('#boxright').css('background-color', result_rgb_str);
-	$('#bg_text').text(background.toHexString() + ' ' + background.toRgbString());
-	$('#rgba_text').text(rgba.toHexString() + ' ' + rgba.toRgbString());
-	$('#rgb_result').css('background-color', result_rgb_str);
-	$('#result_text').text(new tinycolor(result_rgb_str).toHexString() + ' ' + result_rgb_str);
+	$('#bg_text').text(background.toRgbString() + ' / ' + background.toHexString());
+
+	$('#result_rgb').css('background-color', result_rgb_str);
+	$('#result_rgb_text').text(result_rgb_str + ' / ' + new tinycolor(result_rgb_str).toHexString());
+
+	$('#rgba_text').text(rgba.toRgbString() + ' / ' + rgba.toHexString());
 }
 
 $('#colorpicker_bg').spectrum({
