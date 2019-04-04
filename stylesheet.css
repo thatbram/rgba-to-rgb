@@ -1,44 +1,43 @@
-.checker {
-        background-image: url('data:image/gif;base64,R0lGODlhEAAQAPEAAAAAAICAgMzMzAAAACH5BAEAAAIALAAAAAAQABAAAAIfjG+iq4jM3IFLJipswNly/XkcBpIiVaInlLJr9FZWAQA7');
-      }
-      .container {
-        display: table;
-        position: absolute;
-        width: 100%;
-        height: 10em;
-      }
-      div.container_center {
-        display: table-cell;
-        vertical-align: bottom;
-        color: white;
-        text-shadow: -1px 1px #000000;
-      }
-      div#boxleft {
-        width: 50%;
-        height: 8em;
-        margin-left: auto;
-        margin-right: auto;
-        float:left;
-        background-color: rgba(255, 0, 0, 0.5);
-      }
-      div#boxright {
-        width: 50%;
-        height: 8em;
-        margin-left: auto;
-        margin-right: auto;
-        float: right;
-        background-color: rgb(128, 0, 0);
-      }
-      input {
-        border: none;
-        border-width: 0px;
-      }
-      comment {
-        color: green;
-      }
-      keyword {
-        color: rgb(255, 0, 200);
-      }
-      literal {
-        color: rgb(42, 42, 200);
-      }
+.container {
+	display: flex;
+	height: 10em;
+	/** https://leaverou.github.io/css3patterns/#checkerboard */
+	background-color: #eee;
+	background-image: linear-gradient(45deg, gray 25%, transparent 25%, transparent 75%, gray 75%, gray),
+	linear-gradient(45deg, gray 25%, transparent 25%, transparent 75%, gray 75%, gray);
+	background-size: 60px 60px;
+	background-position: 0 0, 30px 30px;
+}
+
+.container div {
+	flex: 1;
+	padding: 8px;
+	width: 50%;
+	color: white;
+	text-shadow: -1px 1px #000000;
+}
+
+#boxleft {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+#boxright {
+	background-color: rgb(128, 0, 0);
+}
+
+input {
+	border: none;
+	border-width: 0;
+}
+
+comment {
+	color: green;
+}
+
+keyword {
+	color: rgb(255, 0, 200);
+}
+
+literal {
+	color: rgb(42, 42, 200);
+}
