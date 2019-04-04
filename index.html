@@ -3,48 +3,34 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 	<title>Convert RGBA to RGB</title>
-  
+
 	<link rel='stylesheet' href='utils/spectrum.css' />
 	<link rel='stylesheet' href='stylesheet.css' />
 </head>
 <body>
-	<div id="main">
+	<main>
         <h2>RGBA to RGB converter</h2>
-		
+
 		<h3>1. Choose a background color</h3>
-	  
+
 	  	<div><input id='colorpicker_bg' /> <comment> // <samp id="bg_text">N/A</samp></comment></div>
 
 		<h3>2. Set the RGBA color</h3>
-	  
+
 	  	<div><input id='colorpicker_rgba' /> <comment> // <samp id="rgba_text">N/A</samp></comment></div>
-	    
+
         <h3>Result</h3>
-	  
-        <p><input id="rgb_result" readonly=""><comment>// <samp id="result_text">N/A</samp></comment></p>
-	  
+
 	  	<div class="checker container">
-			<div id="boxleft">
+			<div id="result_rgb">
+				<samp>RGB</samp><comment>// <samp id="result_rgb_text">N/A</samp></comment>
+			</div>
+
+			<div id="result_rgba">
 				<samp>RGBA</samp>
 			</div>
-
-			<div id="boxright">
-				<samp>RGB</samp>
-			</div>
 		</div>
-	  
-    <h3><samp>Source code</samp></h3>
-    <pre>
-		<keyword>function</keyword> rgba2rgb(RGB_background, RGBA_color) {
-			<keyword>var</keyword> alpha = RGBA_color.a;
-
-			<keyword>return new</keyword> Color(
-				(<literal>1</literal> - alpha) * RGB_background.r + alpha * RGBA_color.r,
-				(<literal>1</literal> - alpha) * RGB_background.g + alpha * RGBA_color.g,
-				(<literal>1</literal> - alpha) * RGB_background.b + alpha * RGBA_color.b
-			);
-		}
-	</pre>
+	</main>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
     <script src='utils/spectrum.js'></script>
