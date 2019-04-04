@@ -9,23 +9,33 @@
 </head>
 <body>
   <div id="main">
-    <form>
-        <h3><samp>RGBA2RGB</samp></h3>
-        Alpha value both attenuates the background color and the color value<br/><br/>
-        <table>
-          <tr>
-            <td><samp>RGB_background</samp></td><td><samp>=</samp></td><td><input id='colorpicker_bg' /></td>
-            <td><comment>// <samp id="bg_text">N/A</samp></comment></td>
-          </tr>
-          <tr>
-            <td><samp>RGBA_color</samp></td><td><samp>=</samp></td><td><input id='colorpicker_rgba' /></td>
-            <td><comment>// <samp id="rgba_text">N/A</samp></comment></td>
-          </tr>
-        </table>
-        <h3>Result color</h2>
-        <p><input id="rgb_result" readonly=""><samp> = rgba2rgb(RGB_background, RGBA_color)</samp>
-        <comment>// <samp id="result_text">N/A</samp></comment></p>
-    <h3>Source code</h3>
+    <!--form-->
+        <h2>RGBA to RGB converter</h2>
+		
+		<h3>1. Choose a background color</h3>
+	  
+	  	<div><input id='colorpicker_bg' /> <comment> // <samp id="bg_text">N/A</samp></comment></div>
+
+		<h3>2. Set the RGBA color</h3>
+	  
+	  	<div><input id='colorpicker_rgba' /> <comment> // <samp id="rgba_text">N/A</samp></comment></div>
+	    
+        <h3>Result</h3>
+	  
+        <p><input id="rgb_result" readonly=""><comment>// <samp id="result_text">N/A</samp></comment></p>
+	  
+	  <div class="checker container">
+      <div class="container_center">
+        <div id="boxleft">
+          <samp>RGBA color</samp>
+        </div>
+        <div id="boxright">
+          <samp>RGBA color on RGB background</samp>
+        </div>
+      </div>
+    </div>
+	  
+    <h3><samp>Source code</samp></h3>
     <pre><keyword>function</keyword> rgba2rgb(RGB_background, RGBA_color)
 {
     <keyword>var</keyword> alpha = RGBA_color.a;
@@ -36,18 +46,8 @@
         (<literal>1</literal> - alpha) * RGB_background.b + alpha * RGBA_color.b
     );
 }</pre>
-    </form>
+    <!--/form-->
 
-    <div class="checker container">
-      <div class="container_center">
-        <div id="boxleft">
-          <samp>RGBA color</samp>
-        </div>
-        <div id="boxright">
-          <samp>RGBA color on RGB background</samp>
-        </div>
-      </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
     <script src='utils/spectrum.js'></script>
     <script>
